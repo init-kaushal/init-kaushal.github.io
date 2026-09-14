@@ -1,0 +1,171 @@
+/* ═══════════════════════════════════════════════════════
+   Links — Rosé Pine Theme + IBM Plex Mono
+   (shares tokens with init-kaushal.github.io/portfolio)
+   ═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root, [data-theme="dark"] {
+    --bg:            #191724;
+    --bg-secondary:  #1f1d2e;
+    --bg-hover:      #26233a;
+    --bg-card:       #1f1d2e;
+    --text-primary:  #e0def4;
+    --text-muted:    #908caa;
+    --border:        #26233a;
+    --border-light:  #393552;
+    --accent:        #9ccfd8;
+    --accent-alt:    #c4a7e7;
+    --shadow:        0 4px 30px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+}
+
+[data-theme="light"] {
+    --bg:            #faf4ed;
+    --bg-secondary:  #fffaf3;
+    --bg-hover:      #f2e9de;
+    --bg-card:       #fffaf3;
+    --text-primary:  #575279;
+    --text-muted:    #797593;
+    --border:        #e8e0d6;
+    --border-light:  #f2e9de;
+    --accent:        #286983;
+    --accent-alt:    #907aa9;
+    --shadow:        0 4px 30px rgba(87, 82, 121, 0.08);
+    color-scheme: light;
+}
+
+body {
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+a { color: var(--accent); text-decoration: none; }
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+}
+.theme-toggle:hover { color: var(--accent-gold, var(--accent)); border-color: var(--accent-gold, var(--accent)); }
+.icon-sun, .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun { display: inline; }
+[data-theme="light"] .icon-moon { display: inline; }
+
+.wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 80px 24px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.avatar-wrapper { position: relative; margin-bottom: 24px; }
+.avatar {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-light);
+    display: block;
+}
+
+.name {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+.accent { color: var(--accent); }
+
+.tagline {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 360px;
+    margin-bottom: 40px;
+}
+
+.links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    color: var(--text-primary);
+    text-align: left;
+    transition: all 0.25s;
+}
+
+.link-text { flex: 1; min-width: 0; }
+.link-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+    color: var(--text-primary);
+}
+
+.link-icon {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.link-label {
+    font-weight: 600;
+    font-size: 14px;
+}
+.link-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.link-arrow {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+footer {
+    margin-top: 48px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+footer a { color: var(--text-muted); text-decoration: underline; }
+footer a:hover { color: var(--accent); }
+
+@media (max-width: 420px) {
+    .wrap { padding: 60px 20px 40px; }
+}
